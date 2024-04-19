@@ -5,18 +5,19 @@ import { useState } from 'react';
 // ? import { useNavigate } from 'react-router-dom';
 import { Group, Code } from '@mantine/core';
 import {
-    IconBellRinging,
-    IconFingerprint,
-    IconReceipt2,
     IconMail,
     IconHome,
 } from '@tabler/icons-react';
 import classes from './navbar.module.css';
+import StopWatch from '@/pages/stop_watch-home';
+import PileOuFace from '@/pages/pile-ou-face';
+import Convertisseur from '@/pages/convertisseur';
 
 const data = [
-    { link: '', label: 'Notifications', icon: IconBellRinging },
-    { link: '', label: 'Billing', icon: IconReceipt2 },
-    { link: '', label: 'Security', icon: IconFingerprint },
+    
+    { link: 'Stop-Watch', label: 'Stop-Watch', Component: <StopWatch /> },
+    { link: 'Pile ou Face', label: 'Pile ou Face', Component: <PileOuFace /> },
+    { link: 'Coinvertisseur de devises', label: 'Coinvertisseur de devises', Component: <Convertisseur /> },
     
 ];
 
@@ -37,7 +38,6 @@ const data = [
                 setActive(item.label);
             }}
         >
-            <item.icon className={classes.linkIcon} stroke={1.5} />
             <span>{item.label}</span>
         </a>
 

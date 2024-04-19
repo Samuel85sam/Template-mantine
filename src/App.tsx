@@ -18,3 +18,4 @@ export default function App() {
   );
 }
 // TODO : il faut gérer l'overlap de la bare de slide lorsqu'on est en fenêtre réduite
+// TODO : comment switcher d'une mise en page à une autre pour avoir un rendu utilisable sur tous les mobiles et les taille d'écrans??? 
