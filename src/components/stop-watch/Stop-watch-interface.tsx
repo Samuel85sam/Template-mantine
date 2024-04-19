@@ -1,13 +1,15 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Container, Flex } from '@mantine/core';
+import Display from './display';
+import Buttons from './buttons';
+import classes from './stop-watch.module.css';
 
-const StopWatchInterface = () => {
-
+function Stopwatch() {
   const [isRunning, setIsRunning] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
-  
+
   useEffect(() => {
     let timer;
     if (isRunning) {
@@ -28,11 +30,41 @@ const StopWatchInterface = () => {
       setHours(prevHours => prevHours + 1);
     }
   }, [seconds, minutes]);
+
+  const startStop = () => {
+    setIsRunning(prevIsRunning => !prevIsRunning);
+  };
+
+  const reset = () => {
+    setIsRunning(false);
+    setSeconds(0);
+    setMinutes(0);
+    setHours(0);
+  };
+
   return (
-    <div>StopWatchInterface</div>
-  )
+    <>
+      <Container>
+
+
+        <Flex
+          mih={50}
+          gap="lg"
+          justify="center"
+          align="center"
+          direction="column"
+        >
+          <div
+          className={classes.title}>
+            Stop-Watch
+          </div>
+          <Display hours={hours} minutes={minutes} seconds={seconds} />
+          <Buttons isRunning={isRunning} startStop={startStop} reset={reset} />
+        </Flex>
+      </Container>
+
+    </>
+  );
 }
 
-export default StopWatchInterface
-
-//TODO: typeScript ou pas ??? 
+export default Stopwatch;

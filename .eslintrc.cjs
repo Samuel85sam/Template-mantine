@@ -13,6 +13,9 @@ module.exports = {
     'padded-blocks':'off',
     'react/jsx-indent-props':'off',
     'no-multiple-empty-lines':'off',
-    'no-multi-spaces':'off'
+    'no-multi-spaces':'off',
+    '@typescript-eslint/quotes':'off',
+    'prefer-template':'off',
+    'react/button-has-type':'off'
   },
 };

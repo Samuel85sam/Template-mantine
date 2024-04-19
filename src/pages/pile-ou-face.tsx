@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 const PileOuFace = () => {
   return (
-    <div>PileOuFace</div>
-  )
-}
+    <>
+    
+    </>
+  );
 
-export default PileOuFace
+};
+
+
+export default PileOuFace;

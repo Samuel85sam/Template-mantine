@@ -1,12 +1,16 @@
-import React from 'react'
+import { Button, Flex } from '@mantine/core';
+import React from 'react';
 
-const Buttons
- = () => {
+function Buttons({ isRunning, startStop, reset }) {
   return (
-    <div>Buttons
-        
-    </div>
-  )
+    <>
+      <Flex
+      gap={'30px'}>
+        <Button onClick={startStop}>{isRunning ? "Stop" : "Start"}</Button>
+        <Button onClick={reset}>Reset</Button>
+      </Flex>
+    </>
+  );
 }
 
-export default Buttons
+export default Buttons;

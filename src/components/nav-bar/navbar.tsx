@@ -1,31 +1,30 @@
+/* eslint-disable react/jsx-curly-brace-presence */
+
+//? TODO: "Uncaught Error: useNavigate() may be used only in the context of a <Router> component.
 import { useState } from 'react';
+// ? import { useNavigate } from 'react-router-dom';
 import { Group, Code } from '@mantine/core';
 import {
     IconBellRinging,
     IconFingerprint,
-    IconKey,
-    IconSettings,
-    Icon2fa,
-    IconDatabaseImport,
     IconReceipt2,
-    IconSwitchHorizontal,
-    IconLogout,
+    IconMail,
+    IconHome,
 } from '@tabler/icons-react';
-import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './navbar.module.css';
 
 const data = [
     { link: '', label: 'Notifications', icon: IconBellRinging },
     { link: '', label: 'Billing', icon: IconReceipt2 },
     { link: '', label: 'Security', icon: IconFingerprint },
-    { link: '', label: 'SSH Keys', icon: IconKey },
-    { link: '', label: 'Databases', icon: IconDatabaseImport },
-    { link: '', label: 'Authentication', icon: Icon2fa },
-    { link: '', label: 'Other Settings', icon: IconSettings },
+    
 ];
 
-export function NavbarSimple() {
+ const NavbarSimple = () => {
     const [active, setActive] = useState('Billing');
+
+    // ? const navigate = useNavigate();
+
 
     const links = data.map((item) => (
         <a
@@ -41,29 +40,36 @@ export function NavbarSimple() {
             <item.icon className={classes.linkIcon} stroke={1.5} />
             <span>{item.label}</span>
         </a>
+
+       
     ));
+
+    // ? const goToHomePage = () => {
+    // ?     navigate('../../pages/Home.page.tsx');
+    // ? };
 
     return (
         <nav className={classes.navbar}>
             <div className={classes.navbarMain}>
                 <Group className={classes.header} justify="space-between">
-                    <MantineLogo size={28} />
-                    <Code fw={700}>v3.1.2</Code>
+                    Avatar
+                    <Code fw={700}>{'+32(0)488609209'}</Code>
                 </Group>
                 {links}
             </div>
 
             <div className={classes.footer}>
-                <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-                    <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-                    <span>Change account</span>
-                </a>
+                    <IconMail className={classes.linkIcon} stroke={1.5} />
+                    <a href="mailto:samueldemees@gmail.com">samueldemees@gmail.com</a>
 
+                {/* <a href="#" className={classes.link} onClick={goToHomePage}> */}
                 <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-                    <IconLogout className={classes.linkIcon} stroke={1.5} />
-                    <span>Logout</span>
+                    <IconHome className={classes.linkIcon} stroke={1.5} />
+                    <span>Home Page</span>
                 </a>
             </div>
         </nav>
     );
-}
+};
+
+export default NavbarSimple;
