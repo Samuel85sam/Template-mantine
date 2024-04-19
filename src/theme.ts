@@ -1,5 +1,22 @@
-import { createTheme } from '@mantine/core';
+import { Button, Container, createTheme } from '@mantine/core';
 
 export const theme = createTheme({
-  /** Put your mantine theme override here */
+
+    components: {
+      Button: Button.extend({
+        defaultProps: {
+          color: 'cyan',
+          variant: 'outline',
+        },
+         
+      }),
+      //TODO: comment accéder au 'marging' du container ? 
+      // Container: Container.extend({
+      //   defaultProps: {
+      //     marging: '2rem',
+      //   },
+
+      // }),
+    },
+
 });
