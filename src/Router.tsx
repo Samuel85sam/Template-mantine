@@ -1,5 +1,6 @@
+import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './pages/Home.page';
+import HomePage from './pages/Home.page';
 import StopWatch from './pages/stop_watch-home';
 import PileOuFace from './pages/pile-ou-face';
 import Convertisseur from './pages/convertisseur';

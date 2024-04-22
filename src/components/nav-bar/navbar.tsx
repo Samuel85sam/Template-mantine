@@ -1,52 +1,55 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable react/jsx-curly-brace-presence */
-
-//? TODO: "Uncaught Error: useNavigate() may be used only in the context of a <Router> component.
+import React from 'react';
 import { useState } from 'react';
-// ? import { useNavigate } from 'react-router-dom';
 import { Group, Code } from '@mantine/core';
 import {
     IconMail,
     IconHome,
+    IconId,
 } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 import classes from './navbar.module.css';
-import StopWatch from '@/pages/stop_watch-home';
-import PileOuFace from '@/pages/pile-ou-face';
-import Convertisseur from '@/pages/convertisseur';
+// import StopWatch from '@/pages/stop_watch-home';
+// import PileOuFace from '@/pages/pile-ou-face';
+// import Convertisseur from '@/pages/convertisseur';
+// import { HomePage } from '@/pages/Home.page';
 
 const data = [
-    
-    { link: 'Stop-Watch', label: 'Stop-Watch', Component: <StopWatch /> },
-    { link: 'Pile ou Face', label: 'Pile ou Face', Component: <PileOuFace /> },
-    { link: 'Coinvertisseur de devises', label: 'Coinvertisseur de devises', Component: <Convertisseur /> },
-    
+    { link: '/', label: 'Home' },
+    { link: '/stop_watch', label: 'Stop-Watch' },
+    { link: '/pile_ou_face', label: 'Pile ou Face' },
+    { link: '/convertisseur', label: 'Coinvertisseur de devises' },
 ];
 
- const NavbarSimple = () => {
+const NavbarSimple = () => {
     const [active, setActive] = useState('Billing');
-
     // ? const navigate = useNavigate();
-
-
     const links = data.map((item) => (
-        <a
+        
+        <Link
             className={classes.link}
-            data-active={item.label === active || undefined}
-            href={item.link}
+            to={item.link}
             key={item.label}
-            onClick={(event) => {
-                event.preventDefault();
-                setActive(item.label);
-            }}
+            data-active={item.label === active || undefined}
+            onClick={() => { setActive(item.label); }}
         >
             <span>{item.label}</span>
-        </a>
-
-       
+        </Link>
+    //     <a
+    //   className={classes.link}
+    //   data-active={item.label === active || undefined}
+    //   href={item.link}
+    //   key={item.label}
+    //   onClick={(event) => {
+    //     event.preventDefault();
+    //     setActive(item.label);
+    //   }}
+    // >
+    //   <item.icon className={classes.linkIcon} stroke={1.5} />
+    //   <span>{item.label}</span>
+    // </a>
     ));
-
-    // ? const goToHomePage = () => {
-    // ?     navigate('../../pages/Home.page.tsx');
-    // ? };
 
     return (
         <nav className={classes.navbar}>
@@ -59,13 +62,16 @@ const data = [
             </div>
 
             <div className={classes.footer}>
-                    <IconMail className={classes.linkIcon} stroke={1.5} />
-                    <a href="mailto:samueldemees@gmail.com">samueldemees@gmail.com</a>
-
-                {/* <a href="#" className={classes.link} onClick={goToHomePage}> */}
+                <IconMail className={classes.linkIcon} stroke={1.5} />
+                <a href="mailto:samueldemees@gmail.com">samueldemees@gmail.com</a>
                 <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
                     <IconHome className={classes.linkIcon} stroke={1.5} />
                     <span>Home Page</span>
+                </a>
+                <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+                    <IconId className={classes.linkIcon} stroke={1.5} />
+                    <span>Curiculum Vitae</span>
+
                 </a>
             </div>
         </nav>

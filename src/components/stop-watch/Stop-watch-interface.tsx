@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Flex } from '@mantine/core';
+import { Flex } from '@mantine/core';
 import Display from './display';
 import Buttons from './buttons';
 import classes from './stop-watch.module.css';
 
-function Stopwatch() {
+
+const Stopwatch = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
 
   useEffect(() => {
-    let timer;
+    let timer: NodeJS.Timeout;
     if (isRunning) {
       timer = setInterval(() => {
         setSeconds(prevSeconds => prevSeconds + 1);
@@ -44,27 +45,22 @@ function Stopwatch() {
 
   return (
     <>
-      <Container>
-
-
-        <Flex
-          mih={50}
-          gap="lg"
-          justify="center"
-          align="center"
-          direction="column"
-        >
-          <div
+      <Flex
+        mih={50}
+        gap="lg"
+        justify="center"
+        align="center"
+        direction="column"
+      >
+        <div
           className={classes.title}>
-            Stop-Watch
-          </div>
-          <Display hours={hours} minutes={minutes} seconds={seconds} />
-          <Buttons isRunning={isRunning} startStop={startStop} reset={reset} />
-        </Flex>
-      </Container>
-
+          Stop-Watch
+        </div>
+        <Display hours={hours} minutes={minutes} seconds={seconds} />
+        <Buttons isRunning={isRunning} startStop={startStop} reset={reset} />
+      </Flex>
     </>
   );
-}
+};
 
 export default Stopwatch;
