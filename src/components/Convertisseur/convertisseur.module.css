@@ -1,0 +1,29 @@
+/* Convertisseur.module.css */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.buttons {
+    /* Styles pour les boutons */
+}
+
+.form {
+    /* Styles pour le formulaire */
+}
+.title {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    font-size: rem(100px);
+    font-weight: 900;
+    letter-spacing: rem(-2px);
+}

@@ -10,16 +10,13 @@ import {
 } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import classes from './navbar.module.css';
-// import StopWatch from '@/pages/stop_watch-home';
-// import PileOuFace from '@/pages/pile-ou-face';
-// import Convertisseur from '@/pages/convertisseur';
-// import { HomePage } from '@/pages/Home.page';
 
 const data = [
     { link: '/', label: 'Home' },
     { link: '/stop_watch', label: 'Stop-Watch' },
     { link: '/pile_ou_face', label: 'Pile ou Face' },
     { link: '/convertisseur', label: 'Coinvertisseur de devises' },
+    { link: '/Villa', label: 'Location Villa' },
 ];
 
 const NavbarSimple = () => {
@@ -36,19 +33,7 @@ const NavbarSimple = () => {
         >
             <span>{item.label}</span>
         </Link>
-    //     <a
-    //   className={classes.link}
-    //   data-active={item.label === active || undefined}
-    //   href={item.link}
-    //   key={item.label}
-    //   onClick={(event) => {
-    //     event.preventDefault();
-    //     setActive(item.label);
-    //   }}
-    // >
-    //   <item.icon className={classes.linkIcon} stroke={1.5} />
-    //   <span>{item.label}</span>
-    // </a>
+   
     ));
 
     return (
